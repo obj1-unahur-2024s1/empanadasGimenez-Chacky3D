@@ -1,0 +1,23 @@
+import local.*
+test "El sistema de deudas de Galvan funciona correctamente" {
+
+	assert.equals(150000, galvan.sueldo())
+	assert.equals(0, galvan.totalDeuda())
+	assert.equals(0, galvan.totalDinero())
+	galvan.gastar(40000)
+	assert.equals(40000, galvan.totalDeuda())
+	assert.equals(0, galvan.totalDinero())
+	galvan.gastar(80000)
+	assert.equals(120000, galvan.totalDeuda())
+	assert.equals(0, galvan.totalDinero())
+	galvan.cobrarSueldo()
+	assert.equals(0, galvan.totalDeuda())
+	assert.equals(30000, galvan.totalDinero())
+	galvan.gastar(250000)
+	assert.equals(220000, galvan.totalDeuda())
+	assert.equals(0, galvan.totalDinero())
+	galvan.cobrarSueldo()
+	assert.equals(70000, galvan.totalDeuda())
+	assert.equals(0, galvan.totalDinero())
+
+}
